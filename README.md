@@ -29,15 +29,46 @@
 
 ## 2. 项目基础配置
 
-`eslintrc.js`代码校验,参考文档：
+### `eslintrc.js`配置
+
+`eslint`进行代码校验，`prettier`进行代码格式化。
+
+1. 安装`eslint`
+
+```shell
+// 安装
+npm i eslint -d
+npm i eslint-plugin-prettier -D
+
+// 初始化文件
+npx eslint --init
+```
+
+具体配置看`eslintrc.js`文件。
+
+2. 提交前做校验`pre-commit`
+
+
+- `mrm` 是一个自动化工具，它将根据 `package.json` 依赖项中的代码质量工具来安装和配置`lint-staged`
+```shell
+// 安装mrm、配置lint-staged
+npx mrm lint-staged
+
+// 启动git hooks
+npx husky install
+
+// 创建 pre-commit 钩子
+npx husky add .husky/pre-commit "npx lint-staged"
+```
+参考文档：
 
 [ESLint 开始，说透我如何在团队项目中基于 Vue 做代码校验](https://juejin.cn/post/6974223481181306888)
 
 [Eslint + Prettier + Husky + Commitlint+ Lint-staged 规范前端工程代码规范](https://juejin.cn/post/7038143752036155428)
 
+### `setting.json`代码格式化
 
-
-`setting.json`代码格式化,参考文档：
+参考文档：
 
 [VS Code settings.json 10 个高（装）阶（杯）配置！](https://juejin.cn/post/7028358809198264351)
 
